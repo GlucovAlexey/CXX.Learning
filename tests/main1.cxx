@@ -1,11 +1,13 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
-
 using namespace std;
+
+//#define LL long long
 
 int main() {
   int n;
+//  LL var;
   cin >> n;
   int s = 0;
   int c = 0;

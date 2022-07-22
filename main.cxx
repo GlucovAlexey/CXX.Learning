@@ -9,7 +9,9 @@ bool prime(long long n) {
       return false;
   return true;
 }
-
+int test_func(int num, int num1){
+  return num + num1 ;
+}
 int main() {
   int number;
   cin >> number;
