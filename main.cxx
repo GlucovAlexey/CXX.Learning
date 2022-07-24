@@ -1,22 +1,33 @@
-#include <cmath>
+#include <algorithm>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-//#define LL long long
-bool prime(long long n) {
-  for (long long i = 2; i <= sqrt(n); i++)
-    if (n % i == 0)
-      return false;
-  return true;
-}
-int test_func(int num, int num1){
-  return num + num1 ;
-}
 int main() {
-  int number;
-  cin >> number;
-/*  long long var;
-  cout<<sizeof(var)<<endl;
-*/
-  prime(number) ? cout << "YES" : cout << "NO";
+  int n, div = 2;
+
+  cin >> n;
+  while (n > 1) {
+    int k = 0;
+    while (n % div == 0) {
+      k++;
+      n = n / div;
+    }
+    if (k > 0) {
+      cout << div;
+      if (k > 1)
+        cout << "^" << k;
+      if (n > 1)
+        cout << "*";
+    }
+    if (div == 2)
+      div++;
+    else
+      div += 2;
+  }
+  cout << endl;
+  // cin.get();
+  // cin.get();
+  return 0;
 }
