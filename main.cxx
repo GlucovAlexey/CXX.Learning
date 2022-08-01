@@ -1,33 +1,21 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
-
 int main() {
-  int n, div = 2;
-
-  cin >> n;
-  while (n > 1) {
-    int k = 0;
-    while (n % div == 0) {
-      k++;
-      n = n / div;
+    long long n, s = 0;
+    cin >> n;
+    vector <long long> a(n);
+    for (int i = 0; i < a.size(); i++)
+        cin >> a[i];
+    sort(a.begin(), a.end());
+    for (long long i = 0; i < a.size() - 1; i++) {
+        for (long long j = i + 1; j < a.size(); j++) {
+            long long max = a[i] + a[j];
+            long long d = lower_bound(a.begin(), a.end(), max) - a.begin();
+            s += (d - j - 1);
+        }
     }
-    if (k > 0) {
-      cout << div;
-      if (k > 1)
-        cout << "^" << k;
-      if (n > 1)
-        cout << "*";
-    }
-    if (div == 2)
-      div++;
-    else
-      div += 2;
-  }
-  cout << endl;
-  // cin.get();
-  // cin.get();
-  return 0;
+    cout << s;
+    return 0;
 }
